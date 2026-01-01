@@ -372,3 +372,13 @@
         font-size: 0.9rem;
     }
 }
+
+
+.feature-card a {
+    text-decoration: none;
+    color: var(--text-a);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5rem;
+    
+}
