@@ -382,3 +382,31 @@
     margin-top: 0.5rem;
     
 }
+
+
+.hr-challange{
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 50px;
+}
+
+.challenge-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--accent-green);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    
+    backdrop-filter: blur(10px);
+}
+
+
+.challenges{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.flex-challenge{
+    display: flex;
+    justify-content: space-between;
+}
