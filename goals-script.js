@@ -119,31 +119,84 @@ function renderGoalsClearList() {
 }
 
 
+function deleteGoal(id) {
+
+    goalsList_all_array = goalsList_all_array.filter(g => g.id !== id);
+    goalsList_day_array = goalsList_day_array.filter(g => g.id !== id);
+    goalsList_week_array = goalsList_week_array.filter(g => g.id !== id);
+    goalsList_month_array = goalsList_month_array.filter(g => g.id !== id);
+    goalsList_year_array = goalsList_year_array.filter(g => g.id !== id);
+
+
+    renderGoals();
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 //AI generated method
 function createGoalUI(goal) {
-    //kontejner
     const goalDiv = document.createElement('div');
+    // Přidáme id, abychom mohli snadno mazat konkrétní element z DOMu (volitelné, ale dobré pro animace)
+    goalDiv.setAttribute('data-id', goal.id);
     goalDiv.className = `goal-item ${goal.completed ? 'completed' : ''}`;
 
-    //flames based on frequency
     const flames = getFlames(goal.frequency);
 
-    // 3. Poskládáme obsah
-    //class .goal-text  .goal-delete 
+    // ZMĚNA: Rozdělíme obsah na LEVOU a PRAVOU část
     goalDiv.innerHTML = `
-        <input type="checkbox" class="goal-checkbox" ${goal.completed ? 'checked' : ''}>
-        <div class="goal-text">
-            <strong>${goal.text}</strong> 
-            <small style="color: var(--accent-green); margin-left: 10px;">${goal.type}</small>
+    
+        <div class="goal-left">
+            <input type="checkbox" class="goal-checkbox" ${goal.completed ? 'checked disabled' : ''}>
+            <div class="goal-text">
+                <strong>${goal.text}</strong> 
+                <small class="goal-type-label">${goal.type}</small>
+            </div>
         </div>
-        <div class="goal-flames">${flames}</div>
-        <button class="goal-delete">Smazat</button>
+        
+        <div class="goal-right">
+            <div class="goal-flames">
+            <p class="p-Info-bonus">Bonus:</p>
+            ${flames}</div>
+
+            <button class="goal-delete">Smazat</button>
+        </div>
+        
     `;
+
+    // PŘIPOJENÍ POSLUCHAČŮ UDÁLOSTÍ
+    // 1. Checkbox - změna stavu
+    const checkbox = goalDiv.querySelector('.goal-checkbox');
+    checkbox.addEventListener('change', () => {
+        toggleGoal(goal.id);
+    });
+
+    // 2. Tlačítko smazat
+    const deleteBtn = goalDiv.querySelector('.goal-delete');
+    deleteBtn.addEventListener('click', () => {
+        deleteGoal(goal.id);
+    });
 
     return goalDiv;
 }
+
+function toggleGoal(id) {
+    const goal = goalsList_all_array.find(g => g.id === id);
+    if (goal) {
+        goal.completed = !goal.completed; // Prohodí true/false
+        renderGoals(); // Překreslí (kvůli přeškrtnutí a statistikám)
+    }
+}
+
 
 //updates the stats section AI generated method
 function updateStats() {
@@ -155,6 +208,12 @@ function updateStats() {
     completedGoals.textContent = completed;
     progressPercent.textContent = percent + "%";
 }
+
+
+
+
+
+
 
 
 
