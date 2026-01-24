@@ -19,6 +19,26 @@ const completedGoals = document.getElementById('completedGoals');
 const progressPercent = document.getElementById('progressPercent');
 
 
+
+//initial rendering
+document.addEventListener('DOMContentLoaded', () => {
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function addGoal() {
     const inputUser = goalInput.value.trim();
     const type = typeGoalSelect.value;
