@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- Header -->
+    <!--header-->
     <header class="header">
         <div class="header-container">
             <div class="logo">
@@ -28,7 +28,7 @@
         </div>
     </header>
 
-    <!-- Navigation -->
+    <!--navigation-->
     <nav class="navbar">
         <ul class="nav-list">
             <li><a href="index.html" class="nav-link ">HOME</a></li>
@@ -39,40 +39,38 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
+    <!--main content-->
     <main class="main-content">
         <section class="goals-section">
             <h1>My goals</h1>
             <p class="goals-subtitle">Check your goals and tick what you done</p>
 
-            <!-- Add Goal Form -->
+            <!--add goal form-->
             <div class="add-goal-form">
                 <input type="text" id="goalInput" placeholder="Add new goal..." class="goal-input">
 
-                <select name="" class="goalType">
+                <select id="typeGoal" class="goalType">
                     <option value="fitness">Fitness</option>
                     <option value="nutrition">Food</option>
                     <option value="mindfulness">Mindfulness</option>
                     <option value="hydration">Learning</option>
 
                 </select>
-                <select name="" class="goalType">
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="yearly">Yearly</option>
+                <select id="frequencyGoal" class="goalType">
+                    <option value="day">Daily</option>
+                    <option value="week">Weekly</option>
+                    <option value="month">Monthly</option>
+                    <option value="year">Yearly</option>
 
                 </select>
 
                 <button id="addGoalBtn" class="add-btn">+ Add goal</button>
             </div>
 
-            <!-- Goals List -->
-
-
+            <!-- goals List -->
             <div class="goals-container">
 
-                <div id="group-day">
+                <div id="group-day" class="hidden">
                     <h3>DAILY</h3>
                     <div class="goals-list" id="goalsList-day">
 
@@ -80,7 +78,7 @@
                 </div>
 
 
-                <div id="group-week">
+                <div id="group-week" class="hidden">
                     <h3>WEEKLY</h3>
                     <div class="goals-list" id="goalsList-week">
 
@@ -88,7 +86,7 @@
                 </div>
 
 
-                <div id="group-month">
+                <div id="group-month" class="hidden">
                     <h3>MONTHLY</h3>
                     <div class="goals-list" id="goalsList-month">
 
@@ -96,7 +94,7 @@
                 </div>
 
 
-                <div id="group-year">
+                <div id="group-year" class="hidden">
                     <h3>YEARLY</h3>
                     <div class="goals-list" id="goalsList-year">
 
@@ -107,7 +105,7 @@
 
 
 
-            <!-- Stats -->
+            <!--gtats-->
             <div class="stats">
                 <div class="stat-card">
                     <span class="stat-number" id="totalGoals">0</span>
@@ -128,7 +126,7 @@
 
 
 
-    <!-- Footer -->
+    <!--footer-->
     <footer class="footer">
         <p>&copy; 2025 For Those Who Changes World. All rights reserved.</p>
     </footer>
