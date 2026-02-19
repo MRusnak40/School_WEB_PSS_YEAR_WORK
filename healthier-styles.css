@@ -1,0 +1,146 @@
+.subtitle {
+
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.top {
+
+    border-bottom: 2px solid var(--accent-green);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+
+}
+
+
+.filtr-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+
+
+}
+
+.filter-btn {
+
+
+    background: rgba(0, 212, 170, 0.2);
+    color: rgba(255, 255, 255, 0.664);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+
+}
+
+.filter-btn:hover {
+    background-color: var(--accent-green);
+
+    scale: 1.05;
+    color: rgb(255, 255, 255);
+}
+
+
+.info-card {
+    background: rgba(0, 212, 170, 0.1);
+    border: 2px solid var(--accent-green);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    max-width: 400px;
+    margin-bottom: 30px;
+}
+
+
+
+.info-card:hover {
+    background: rgba(0, 212, 170, 0.2);
+    transform: translateY(-5px);
+}
+
+.info-card h3 {
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+
+
+}
+
+.card-text {
+  text-align: center;
+    color: var(--text-light);
+    font-size: 0.95rem;
+
+
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+div ul {
+
+    list-style-type: none;
+}
+
+.a-card {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    
+    border-radius: 10px;
+}
+
+
+.anon-card {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    
+    border-radius: 10px;
+}
+.a-card:hover {
+    color: var(--accent-green);
+    text-decoration: none;
+    scale: 1.05;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    background-color: rgba(35, 103, 163, 0.37);
+}
+
+
+
+.card-container {
+
+    display: grid;
+   grid-template-columns: repeat(3, minmax(250px, 400px));
+    justify-content: center; 
+    
+    
+    margin: 0 auto;
+    
+    gap: 30px;
+    
+    
+}
+
+.hr-div {
+
+    height: 2px;
+    background-color: var(--accent-green);
+    width: 100%;
+}
