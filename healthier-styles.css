@@ -73,7 +73,7 @@
 }
 
 .card-text {
-  text-align: center;
+  text-align: left;
     color: var(--text-light);
     font-size: 0.95rem;
 
@@ -82,6 +82,11 @@
     color: var(--text-light);
     margin-left: 15px;
     margin-right: 15px;
+    
+}
+
+.card-text p {
+    margin-bottom: 0.5rem;
 }
 
 div ul {
@@ -143,4 +148,5 @@ div ul {
     height: 2px;
     background-color: var(--accent-green);
     width: 100%;
+    margin : 6px ;
 }
