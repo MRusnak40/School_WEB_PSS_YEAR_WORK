@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goals - For Those Who Changes World</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'global.css' %}" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'goals-styles.css' %}" />
+  </head>
+
+  <body>
+  
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <span class="logo-icon">🪽</span>
+          <span class="logo-text">FOR THOSE WHO CHANGES WORLD</span>
+        </div>
+        <div class="header-right">
+          <div class="streak">
+            <span class="flame">🔥</span>
+            <span class="streak-number">2</span>
+          </div>
+          <button class="account-btn">👤</button>
+        </div>
+      </div>
+    </header>
+
+    
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li>
+          <a href="{% url 'home' %}" class="nav-link">HOME</a>
+        </li>
+        <li>
+          <a href="{% url 'goals' %}" class="nav-link active">GOALS</a>
+        </li>
+        <li>
+          <a href="{% url 'challenges' %}" class="nav-link">CHALLENGES</a>
+        </li>
+        <li>
+          <a href="{% url 'healthier' %}" class="nav-link">BE HEALTHIER</a>
+        </li>
+        <li>
+          <a href="{% url 'community' %}" class="nav-link">COMMUNITY</a>
+        </li>
+      </ul>
+    </nav>
+
+   
+    <main class="main-content">
+      <section class="goals-section">
+        <h1>My goals</h1>
+        <p class="goals-subtitle">Check your goals and tick what you done</p>
+
+        
+        <div class="add-goal-form">
+          <input type="text" id="goalInput" placeholder="Add new goal..." class="goal-input" />
+
+          <select id="typeGoal" class="goalType">
+            <option value="fitness">Fitness</option>
+            <option value="nutrition">Food</option>
+            <option value="mindfulness">Mindfulness</option>
+            <option value="hydration">Learning</option>
+          </select>
+          <select id="frequencyGoal" class="goalType">
+            <option value="day">Daily</option>
+            <option value="week">Weekly</option>
+            <option value="month">Monthly</option>
+            <option value="year">Yearly</option>
+          </select>
+
+          <button id="addGoalBtn" class="add-btn">+ Add goal</button>
+        </div>
+
+        
+        <div class="goals-container">
+          <div id="group-day" class="hidden">
+            <h3>DAILY</h3>
+            <div class="goals-list" id="goalsList-day"></div>
+          </div>
+
+          <div id="group-week" class="hidden">
+            <h3>WEEKLY</h3>
+            <div class="goals-list" id="goalsList-week"></div>
+          </div>
+
+          <div id="group-month" class="hidden">
+            <h3>MONTHLY</h3>
+            <div class="goals-list" id="goalsList-month"></div>
+          </div>
+
+          <div id="group-year" class="hidden">
+            <h3>YEARLY</h3>
+            <div class="goals-list" id="goalsList-year"></div>
+          </div>
+        </div>
+
+    
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-number" id="totalGoals">0</span>
+            <span class="stat-label">Celkem cílů</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="completedGoals">0</span>
+            <span class="stat-label">Splněno</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="progressPercent">0%</span>
+            <span class="stat-label">Pokrok</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+   
+
+    <script src="JavaScript/goals-script.js"></script>
+  </body>
+
+   <footer class="footer">
+        <p>&copy; 2025 For Those Who Changes World. All rights reserved.</p>
+    </footer>
+</html>
