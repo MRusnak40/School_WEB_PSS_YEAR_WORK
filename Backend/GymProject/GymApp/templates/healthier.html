@@ -60,7 +60,7 @@
 
                 <div class="card-container">
 
-                    <div class="card">
+                    <div class="card" data-category="nutrition">
 
                         <div class="info-card">
                             <h3>Nutritons </h3>
@@ -124,7 +124,7 @@
 
 
 
-                    <div class="card">
+                    <div class="card" data-category="nutrition">
 
                         <div class="info-card">
                             <h3>What is bad food? </h3>
@@ -185,7 +185,7 @@
 
 
 
-                    <div class="card">
+                    <div class="card" data-category="nutrition">
 
                        <div class="info-card">
                             <h3>What should I eat?</h3>
@@ -247,7 +247,7 @@
 
 
 
-                    <div class="card">
+                    <div class="card" data-category="sleep">
 
                         <div class="info-card">
                             <h3>Why is sleep important?</h3>
@@ -313,7 +313,7 @@
 
 
 
-                    <div class="card">
+                    <div class="card" data-category="lifestyle">
 
                         <div class="info-card">
                             <h3>How does a good lifestyle look?</h3>
@@ -366,12 +366,12 @@
 
     </main>
     
-
+ {% load static %}
+    <script type="module" src="{% static 'JavaScript/script-health.js' %}"></script>
 </body>
  <footer class="footer">
         <p>&copy; 2025 For Those Who Changes World. All rights reserved.</p>
 
 </footer>
-    {% load static %}
-<script type="module" src="{% static 'JavaScript/healthier-script.js' %}"></script>
+   
 </html>

@@ -150,3 +150,19 @@ div ul {
     width: 100%;
     margin : 6px ;
 }
+
+.hidden {
+    display: none !important;
+}
+
+.hidden * {
+    display: none !important;
+}
+
+.card {
+    display: block;
+}
+
+.card.hidden {
+    display: none !important;
+}
