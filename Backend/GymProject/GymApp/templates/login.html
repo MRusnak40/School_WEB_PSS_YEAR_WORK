@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
     <link rel="stylesheet" href="{% static 'global.css' %}" />
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login.css' %}" />
 
     <title>Login</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <form action="{% url 'loginCheck' %}" method="post">
-        {% csrf_token %}
+      {% csrf_token %}
 
+      <div>
+        <div class="hero">
+          <h1>Sign In</h1>
+          <p>Already have an account?</p>
+        </div>
 
-        <h1>Sign In</h1>
-        <label for="username">Username:</label><br>
-        <input type="text" name="username" id="username" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" name="password" id="password" required><br>
-        <button type="submit">Login</button>
+        <div class="box">
+          <div>
+            <div class="login-card">
+              <label for="username">Username:</label>
+              <input type="text" name="username" id="username" required />
+            </div>
 
+            <div class="login-card">
+              <label for="password">Password:</label>
+              <input type="password" name="password" id="password" required /><br />
+            </div>
+          </div>
+        </div>
 
+        <div>
+          <button type="submit">Login</button>
+        </div>
 
+        <div class="hero">
+          <p>
+            Don't have an account? <a href="{% url 'register' %}">Register here</a>.
+          </p>
+        </div>
+      </div>
     </form>
-    
-</body>
-
-
-
+  </body>
 </html>

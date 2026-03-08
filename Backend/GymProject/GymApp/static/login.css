@@ -1,0 +1,20 @@
+.box {
+    
+    display: flex;
+   
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba
+        
+}
+
+.login-card {
+    background: rgba(0, 212, 170, 0.1);
+    border: 2px solid var(--accent-green);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
