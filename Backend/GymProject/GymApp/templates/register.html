@@ -17,21 +17,30 @@
     <form action="{% url 'registerCheck' %}" method="post">
       {% csrf_token %}
       <div>
-        <h1>Register</h1>
-
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" name="username" id="username" required />
+        <div class="hero">
+          <h1>Register</h1>
+          <p>Create your Account</p>
         </div>
 
-        <div>
-          <label for="password">Password:</label><br />
-          <input type="password" name="password" id="password" required /><br />
+        <div class="box">
+          <div>
+            <div class="login-card">
+              <label for="username">Username:</label>
+              <input type="text" name="username" id="username" required />
+            </div>
+
+            <div class="login-card">
+              <label for="password">Password:</label>
+              <input type="password" name="password" id="password" required /><br />
+            </div>
+          </div>
         </div>
 
-        <div>
-          <button type="submit">Register</button>
+        <div class="btn-box">
+          <button class="login-btn" type="submit">Register</button>
         </div>
+
+        
       </div>
     </form>
   </body>
