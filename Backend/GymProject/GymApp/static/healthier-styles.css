@@ -44,6 +44,14 @@
     color: rgb(255, 255, 255);
 }
 
+.filter-btn.active {
+    background-color: var(--accent-green);
+    color: rgb(255, 255, 255);
+    scale: 1.05;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}   
+
 
 .info-card {
     background: rgba(0, 212, 170, 0.1);

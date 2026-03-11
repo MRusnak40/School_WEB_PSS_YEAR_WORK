@@ -122,3 +122,6 @@ DEBUG = True
 
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 # Default primary key field type
+
+if DEBUG:
+    CACHE_MIDDLEWARE_SECONDS = 0
