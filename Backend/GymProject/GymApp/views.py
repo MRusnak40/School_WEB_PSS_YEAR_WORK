@@ -13,7 +13,8 @@ from django.urls import path
 from .models import Flame
 from . import views
 
-
+import json
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -158,3 +159,18 @@ def remove_goal(request):
     
 
     return HttpResponse(status=204)
+
+
+def update_goal_status(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        goal_id = data.get('id')
+        is_finished = data.get('is_finished')
+        
+        try:
+            goal = Goal.objects.get(id=goal_id)
+            goal.is_finished = is_finished
+            goal.save()
+            return JsonResponse({"status": "ok"})
+        except Goal.DoesNotExist:
+            return JsonResponse({"status": "error", "message": "Goal not found"}, status=404)

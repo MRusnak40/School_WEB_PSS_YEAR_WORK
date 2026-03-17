@@ -79,6 +79,24 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFromDatabase();
 
 
+    function updateGoalStatusInDatabase(id, isCompleted) {
+        fetch("/update_goal_status/", { // Cestu si uprav podle svého URL v Djangu
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": csrftoken
+            },
+            body: JSON.stringify({
+                "id": id,
+                "is_finished": isCompleted
+            })
+        }).then(response => {
+            if (!response.ok) {
+                console.error("Chyba při ukládání stavu do databáze.");
+            }
+        });
+    }
+
 
     function loadFromDatabase() {
         console.log("První prvek z DB:", goals[0]);
@@ -360,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     count: countFlame
                 })
             });
-
+            updateGoalStatusInDatabase(goal.id,true)
 
             flames_number.textContent = countFlame + parseInt(flames_number.textContent);
 
