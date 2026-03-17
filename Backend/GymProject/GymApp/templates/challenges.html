@@ -21,7 +21,7 @@
             <div class="header-right">
                 <div class="streak">
                     <span class="flame">🔥</span>
-                    <span class="streak-number">2</span>
+                    <span id="flame_num" class="streak-number">{{count}}</span>
                 </div>
                 <button class="account-btn">👤</button>
             </div>
@@ -237,7 +237,8 @@
 
     </main>
 
-
+{% load static %}
+    <script type="module" src="{% static 'JavaScript/flames-script.js' %}"></script>
 </body>
  <footer class="footer">
         <p>&copy; 2025 For Those Who Changes World. All rights reserved.</p>

@@ -22,7 +22,7 @@
         <div class="header-right">
           <div class="streak">
             <span class="flame">🔥</span>
-            <span class="streak-number">2</span>
+            <span id="flame_num" class="streak-number">{{ count }}</span>
           </div>
           <button class="account-btn">👤</button>
         </div>
@@ -61,7 +61,7 @@
             <option value="fitness">Fitness</option>
             <option value="nutrition">Food</option>
             <option value="mindfulness">Mindfulness</option>
-            <option value="hydration">Learning</option>
+            <option value="learning">Learning</option>
           </select>
           <select id="frequencyGoal" class="goalType">
             <option value="day">Daily</option>
@@ -111,9 +111,20 @@
         </div>
       </section>
     </main>
+    
+    
+    <script>
+      const goals = JSON.parse('{{ goals|escapejs }}')
+      console.log(goals)
+    </script>
 
     {% load static %}
     <script type="module" src="{% static 'JavaScript/goals-script.js' %}"></script>
+
+    {% load static %}
+    <script type="module" src="{% static 'JavaScript/flames-script.js' %}"></script>
+
+    
   </body>
 
   <footer class="footer">

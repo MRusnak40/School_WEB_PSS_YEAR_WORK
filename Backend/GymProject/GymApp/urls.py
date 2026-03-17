@@ -16,4 +16,7 @@ urlpatterns = [
     path('goals/', views.goals, name='goals'),
     path('challenges/', views.challenges, name='challenges'),
     path('community/', views.community, name='community'),
+    path('add_flame/', views.add_flame, name='add_flame'),
+    path('add_goal/', views.add_goal, name='add_goal'),
+    path('remove_goal/',views.remove_goal,name='remove_goal'),
 ]
