@@ -188,7 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         renderGoals();
-
+        //BAD SAVE BUT SAVED
+        location.reload()
 
     }
 
