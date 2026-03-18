@@ -174,3 +174,20 @@ div ul {
 .card.hidden {
     display: none !important;
 }
+
+
+@media(max-width:1000px){
+.card-container{ grid-template-columns: repeat(2, minmax(250px, 400px));}
+
+}
+
+@media (max-width:600px)
+{
+    .card-container{ grid-template-columns: repeat(1, minmax(250px, 400px));}
+
+}
+@media (max-width:500px)
+{
+    
+}
+
