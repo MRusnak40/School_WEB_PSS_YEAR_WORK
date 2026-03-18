@@ -16,6 +16,9 @@ from . import views
 import json
 from django.http import JsonResponse
 
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+
 # Create your views here.
 
 @login_required(login_url='login')
@@ -49,7 +52,10 @@ def loginCheck(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
+        
+        if not username or not password:
+            return render(request, 'register.html', {'error': 'Everything must be filled'})
+        
         user= authenticate(request, username=username, password=password)
 
         if user is not None:
@@ -65,69 +71,70 @@ def registerCheck(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
+
+    if not username or not password:
+            return render(request, 'register.html', {'error': 'Everything must be filled'})
+
+    try:
         if User.objects.filter(username=username).exists():
             return render(request, 'register.html', {'error': 'Username already exists'})
 
+        validate_email(username)
+
+
+
         user = User.objects.create_user(username=username, password=password)
+        Flame.objects.create(user=user, count=0)
         user.save()
         return redirect('login')   
 
+    except ValidationError:
+        return render(request, 'register.html', {'error': 'Give valid emali address.'})
+        
+    
+    
+    
+    
 def register(request):
     return render(request, 'register.html')
 
 
-# def add_goal(request):
-#     if request.method != 'POST':
-#         return HttpResponse(status=405)
-     
-#     data=json.loads(request.body)
-#         # Získání dat z formuláře
-#     name = data.get('name')
-#     type = Type.objects.get(id=data["type_id"])
-#     duration = Duration.objects.get(id=data["duration_id"])
-#     completed = data.get('completed')
-
-
-#     # Vytvoření nové instance Goal
-#     goal = Goal.objects.create(
-#             name=name,
-#             type=type,
-#             duration=duration,
-#             is_finished=completed,
-#             user=request.user
-#         )
-#     goal.save()
-
-#     return HttpResponse(status=204)
 
 def add_goal(request):
     if request.method != 'POST':
         return HttpResponse(status=405)
 
-    data = json.loads(request.body)
-    print(data)
-    name = data.get("name")
-    type = Type.objects.get(id=data["type_id"])
-    duration = Duration.objects.get(id=data["duration_id"])
-    completed = data.get("completed")
+    try:
+        data = json.loads(request.body)
+        print(data)
+        name = data.get("name")
+        type = Type.objects.get(id=data["type_id"])
+        duration = Duration.objects.get(id=data["duration_id"])
+        completed = data.get("completed")
 
 
-    print("name:", name)
-    print("type_id:", type)
-    print("duration_id:", duration)
-    print("completed:", completed)
+        print("name:", name)
+        print("type_id:", type)
+        print("duration_id:", duration)
+        print("completed:", completed)
 
-    goal = Goal.objects.create(
-        name=name,
-        type=type,
-        duration=duration,
-        is_finished=completed,
-        user=request.user
-    )
+        goal = Goal.objects.create(
+            name=name,
+            type=type,
+            duration=duration,
+            is_finished=completed,
+            user=request.user
+        )
 
-    goal.save()
+        goal.save()
 
-    return HttpResponse(status=204)
+        return HttpResponse(status=204)
+    
+    except (Type.DoesNotExist, Duration.DoesNotExist):
+        return JsonResponse({'error': 'That type not exists'}, status=404)
+    
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
   
 
 
@@ -136,29 +143,53 @@ def add_goal(request):
 def add_flame(request):
     if request.method != 'POST':
         return HttpResponse(status=405)
-    # Získání dat z formuláře
-    count=int(json.loads(request.body).get('count',0))
+    
+    try:
+      
+        count=int(json.loads(request.body).get('count',0))
 
-    # Vytvoření nové instance Flame
-    flame, created = Flame.objects.get_or_create(user=request.user)
-    flame.count += count
-    flame.save()
+        # Vytvoření nové instance Flame
+        flame, created = Flame.objects.get_or_create(user=request.user)
+        flame.count += count
+        flame.save()
 
-    return HttpResponse(status=204)
+        return HttpResponse(status=204)
+    except Flame.DoesNotExist:
+        return JsonResponse({'error': 'Goal not found'}, status=404)
+    
+    except Exception as e:
+      
+        return JsonResponse({'error': str(e)}, status=500)
+        
+
+
+
 
 def remove_goal(request):
     if request.method != 'POST':
         return HttpResponse(status=405)
     
-    data=json.loads(request.body)
-    goal_id=data.get('id')
-
-    goal = Goal.objects.get(id=goal_id)
-    goal.delete()
     
     
+    try:
+        data=json.loads(request.body)
+        goal_id=data.get('id')
 
-    return HttpResponse(status=204)
+        goal = Goal.objects.get(id=goal_id)
+        goal.delete()
+        
+        
+        return HttpResponse(status=204)
+    except Goal.DoesNotExist:
+        return JsonResponse({'error': 'Goal not found'}, status=404)
+    
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+    
+
+   
+
+
 
 
 def update_goal_status(request):

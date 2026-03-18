@@ -27,12 +27,12 @@
         <div class="box">
           <div>
             <div class="login-card">
-              <label for="username">Username:</label>
-              <input type="text" name="username" id="username" required />
+              <label for="username">👤</label>
+              <input type="email" name="username" placeholder="Mail like(jmeno@seznam.cz)"  id="username" required />
             </div>
 
             <div class="login-card">
-              <label for="password">Password:</label>
+              <label for="password">🔒</label>
               <input type="password" name="password" id="password" required /><br />
             </div>
           </div>
@@ -49,5 +49,11 @@
         </div>
       </div>
     </form>
+
+    {% if error %}
+      <script>
+        alert('{{ error|escapejs }}')
+      </script>
+    {% endif %}
   </body>
 </html>
