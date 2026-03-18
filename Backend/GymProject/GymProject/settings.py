@@ -118,10 +118,20 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
-DEBUG = True
+DEBUG = False
 
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 # Default primary key field type
 
 if DEBUG:
     CACHE_MIDDLEWARE_SECONDS = 0
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+ALLOWED_HOSTS = ['*']
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
