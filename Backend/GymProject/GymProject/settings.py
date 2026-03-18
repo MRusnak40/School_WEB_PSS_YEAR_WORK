@@ -127,11 +127,8 @@ if DEBUG:
     CACHE_MIDDLEWARE_SECONDS = 0
 
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+
 
 ALLOWED_HOSTS = ['*']
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
