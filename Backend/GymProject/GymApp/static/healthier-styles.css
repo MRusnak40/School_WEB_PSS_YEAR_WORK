@@ -22,6 +22,7 @@
     justify-content: center;
 
 
+
 }
 
 .filter-btn {
@@ -50,7 +51,7 @@
     scale: 1.05;
     transform: translateY(-5px);
     transition: all 0.3s ease;
-}   
+}
 
 
 .info-card {
@@ -81,7 +82,7 @@
 }
 
 .card-text {
-  text-align: left;
+    text-align: left;
     color: var(--text-light);
     font-size: 0.95rem;
 
@@ -90,7 +91,7 @@
     color: var(--text-light);
     margin-left: 15px;
     margin-right: 15px;
-    
+
 }
 
 .card-text p {
@@ -110,7 +111,7 @@ div ul {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     width: 100%;
-    
+
     border-radius: 10px;
 }
 
@@ -123,9 +124,10 @@ div ul {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     width: 100%;
-    
+
     border-radius: 10px;
 }
+
 .a-card:hover {
     color: var(--accent-green);
     text-decoration: none;
@@ -140,15 +142,15 @@ div ul {
 .card-container {
 
     display: grid;
-   grid-template-columns: repeat(3, minmax(250px, 400px));
-    justify-content: center; 
-    
-    
+    grid-template-columns: repeat(3, minmax(250px, 400px));
+    justify-content: center;
+
+
     margin: 0 auto;
-    
+
     gap: 30px;
-    
-    
+
+
 }
 
 .hr-div {
@@ -156,7 +158,7 @@ div ul {
     height: 2px;
     background-color: var(--accent-green);
     width: 100%;
-    margin : 6px ;
+    margin: 6px;
 }
 
 .hidden {
@@ -176,18 +178,50 @@ div ul {
 }
 
 
-@media(max-width:1000px){
-.card-container{ grid-template-columns: repeat(2, minmax(250px, 400px));}
+@media(max-width:1000px) {
+    .card-container {
+        grid-template-columns: repeat(2, minmax(250px, 400px));
+    }
 
 }
 
-@media (max-width:600px)
-{
-    .card-container{ grid-template-columns: repeat(1, minmax(250px, 400px));}
+@media (max-width:600px) {
+    .card-container {
+        grid-template-columns: repeat(1, minmax(250px, 400px));
+    }
 
 }
-@media (max-width:500px)
-{
+
+@media (max-width:500px) {
+    .filtr-buttons {
+        flex-wrap: wrap;
+
+
+    }
+
+
+
+
+
+
+
+}
+
+@media(max-width:400px) {
+
+    .filter-btn {
+        font-size: 11px;
+    }
+
+    .card {
+        margin-top: -20px;
+        
+        scale: 0.9;
+    }
+
+    .card-container {
+    gap: 0;
     
+}
 }
 
